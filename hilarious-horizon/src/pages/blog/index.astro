@@ -1,0 +1,33 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('blog');
+
+articles.sort((a, b) => {
+    const dateA = new Date(a.data.date)
+    const dateB = new Date(b.data.date)
+    return dateB.getTime() - dateA.getTime()
+})
+
+---
+<Layout title="blog">
+    <section class="m-4">
+        <h2 class="text-4xl mb-8">My Articles</h2>
+        <ul>
+            {articles.map(article => (
+                <li class="m-4 p-4 rounded-2xl hover:bg-gradient-to-r from-stone-100 to-opacity-0">
+                    <h3 class="text-2xl">{article.data.title}</h3>
+                    <p class="text-1xl text-stone-400"><em>Written by: </em>{article.data.author}</p>
+                    <p class="text-blue-400">{article.data.date.toLocaleDateString()}</p>
+                    <a href={`/blog/${article.id}`}
+                       class="text-blue-400 hover:text-blue-800"
+                    >
+                        Read More...
+                    </a>
+                </li>
+                <br/>
+            ))}
+        </ul>
+    </section>
+</Layout>

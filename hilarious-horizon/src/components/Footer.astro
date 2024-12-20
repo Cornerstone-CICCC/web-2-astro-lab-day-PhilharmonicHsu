@@ -1,0 +1,118 @@
+---
+---
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We are committed to providing the best service and support for our customers. Contact us anytime!</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/projects">Projects</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+    </div>
+</footer>
+<style lang="scss">
+  $primary-color: #333;
+  $secondary-color: #fff;
+  $accent-color: #555;
+  $link-hover-color: #ddd;
+
+  .footer {
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: 2rem 1rem;
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section {
+      flex: 1 1 calc(33.333% - 2rem);
+      min-width: 200px;
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.5rem;
+
+          a {
+            text-decoration: none;
+            color: $secondary-color;
+            transition: color 0.3s;
+
+            &:hover {
+              color: $link-hover-color;
+            }
+          }
+        }
+      }
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+
+      li {
+        a {
+          font-size: 1rem;
+          color: $secondary-color;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $link-hover-color;
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      border-top: 1px solid $accent-color;
+      padding-top: 1rem;
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>

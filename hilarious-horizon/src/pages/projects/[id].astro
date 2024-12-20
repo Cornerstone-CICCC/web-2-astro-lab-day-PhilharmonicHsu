@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+
+    return projects.map(project => ({
+        params: { id: project.id },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+<Layout title={project.data.title}>
+    <section class="m-4">
+        <h1 class="text-5xl">{project.data.title}</h1>
+        <p class="text-1xl text-stone-400"><em>Written by: </em>{project.data.author}</p>
+        <p class="text-blue-400">{project.data.date.toLocaleDateString()}</p>
+        <Content />
+    </section>
+
+</Layout>
